@@ -215,7 +215,11 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
     Arrays: 'Utils.Arrays'
 });
 ;
-_context.invoke('Nittro.Extras.Flashes.Bridges', function() {
+_context.invoke('Nittro.Extras.Flashes.Bridges', function(Nittro) {
+
+    if (!Nittro.DI) {
+        return;
+    }
 
     var FlashesDI = _context.extend('Nittro.DI.BuilderExtension', function(containerBuilder, config) {
         FlashesDI.Super.call(this, containerBuilder, config);
