@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
 
     var files = [
-        'src/js/Nittro/Widgets/Flashes.js'
+        'src/js/Nittro/Extras/Flashes/Service.js',
+        'src/js/Nittro/Extras/Flashes/Bridges/FlashesDI.js'
     ];
 
     grunt.initConfig({
@@ -58,7 +59,10 @@ module.exports = function (grunt) {
             options: {
                 vendor: [
                     'bower_components/promiz/promiz.min.js',
-                    'bower_components/nittro-core/dist/js/nittro-core.js'
+                    'bower_components/nittro-core/dist/js/nittro-core.js',
+                    'bower_components/nittro-datetime/dist/js/nittro-datetime.js',
+                    'bower_components/nittro-neon/dist/js/nittro-neon.js',
+                    'bower_components/nittro-di/dist/js/nittro-di.js'
                 ],
                 specs: 'tests/specs/**.spec.js',
                 display: 'short',

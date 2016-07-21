@@ -1,15 +1,15 @@
-_context.invoke('Nittro.Widgets', function (DOM, Arrays) {
+_context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
 
-    var Flashes = _context.extend(function (options) {
+    var Service = _context.extend(function (options) {
         this._ = {
-            options: Arrays.mergeTree({}, Flashes.defaults, options),
+            options: Arrays.mergeTree({}, Service.defaults, options),
             globalHolder: DOM.create('div', {'class': 'flash-global-holder'})
         };
 
         this._.options.layer.appendChild(this._.globalHolder);
 
         if (!this._.options.positioning) {
-            this._.options.positioning = Flashes.basicPositioning;
+            this._.options.positioning = Service.basicPositioning;
 
         }
 
@@ -208,9 +208,32 @@ _context.invoke('Nittro.Widgets', function (DOM, Arrays) {
         }
     });
 
-    _context.register(Flashes, 'Flashes');
+    _context.register(Service, 'Service');
 
 }, {
     DOM: 'Utils.DOM',
     Arrays: 'Utils.Arrays'
+});
+;
+_context.invoke('Nittro.Extras.Flashes.Bridges', function() {
+
+    var FlashesDI = _context.extend('Nittro.DI.BuilderExtension', function(containerBuilder, config) {
+        FlashesDI.Super.call(this, containerBuilder, config);
+
+    }, {
+        load: function() {
+            var builder = this._getContainerBuilder(),
+                config = this._getConfig();
+
+            builder.addServiceDefinition('flashes', {
+                factory: 'Nittro.Extras.Flashes.Service()',
+                args: {
+                    options: config
+                }
+            });
+        }
+    });
+
+    _context.register(FlashesDI, 'FlashesDI');
+
 });
