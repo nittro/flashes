@@ -3,7 +3,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
     var Service = _context.extend(function (options) {
         this._ = {
             options: Arrays.mergeTree({}, Service.defaults, options),
-            globalHolder: DOM.create('div', {'class': 'flash-global-holder'})
+            globalHolder: DOM.create('div', {'class': 'nittro-flash-global-holder'})
         };
 
         this._.options.layer.appendChild(this._.globalHolder);
@@ -73,7 +73,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
         },
         add: function (target, type, content, rich) {
             var elem = DOM.create('div', {
-                'class': 'flash flash-' + (type || 'info')
+                'class': 'nittro-flash nittro-flash-' + (type || 'info')
             });
 
             if (target && typeof target === 'string') {
@@ -92,7 +92,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
                 DOM.html(elem, content);
 
             } else {
-                DOM.addClass(elem, 'flash-plain');
+                DOM.addClass(elem, 'nittro-flash-plain');
                 elem.textContent = content;
 
             }
@@ -149,11 +149,11 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
         },
 
         _show: function (elem, position, timeout) {
-            DOM.addClass(elem, 'flash-show flash-' + position);
+            DOM.addClass(elem, 'nittro-flash-show nittro-flash-' + position);
 
             window.setTimeout(function () {
                 var foo = window.pageYOffset; // need to force css recalculation
-                DOM.removeClass(elem, 'flash-show');
+                DOM.removeClass(elem, 'nittro-flash-show');
                 this._bindHide(elem, timeout);
 
             }.bind(this), 1);
@@ -167,7 +167,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
                 DOM.removeListener(document, 'touchstart', hide);
 
                 window.setTimeout(function () {
-                    DOM.addClass(elem, 'flash-hide');
+                    DOM.addClass(elem, 'nittro-flash-hide');
 
                     window.setTimeout(function () {
                         elem.parentNode.removeChild(elem);

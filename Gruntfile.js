@@ -1,9 +1,6 @@
 module.exports = function (grunt) {
 
-    var files = [
-        'src/js/Nittro/Extras/Flashes/Service.js',
-        'src/js/Nittro/Extras/Flashes/Bridges/FlashesDI.js'
-    ];
+    var files = grunt.file.readJSON('nittro.json').files;
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -15,7 +12,7 @@ module.exports = function (grunt) {
             },
             nittro: {
                 files: {
-                    'dist/js/nittro-extras-flashes.min.js': files
+                    'dist/js/nittro-extras-flashes.min.js': files.js
                 }
             }
         },
@@ -26,7 +23,7 @@ module.exports = function (grunt) {
             },
             nittro: {
                 files: {
-                    'dist/js/nittro-extras-flashes.js': files
+                    'dist/js/nittro-extras-flashes.js': files.js
                 }
             }
         },
@@ -37,9 +34,7 @@ module.exports = function (grunt) {
                     compress: true
                 },
                 files: {
-                    'dist/css/nittro-extras-flashes.min.css': [
-                        'src/css/flashes.less'
-                    ]
+                    'dist/css/nittro-extras-flashes.min.css': files.css
                 }
             },
             full: {
@@ -47,9 +42,7 @@ module.exports = function (grunt) {
                     compress: false
                 },
                 files: {
-                    'dist/css/nittro-extras-flashes.css': [
-                        'src/css/flashes.less'
-                    ]
+                    'dist/css/nittro-extras-flashes.css': files.css
                 }
             }
         },

@@ -1,4 +1,4 @@
-.flash {
+.nittro-flash {
     position: absolute;
     -webkit-transition: -webkit-transform 400ms, opacity 400ms;
     -moz-transition: -moz-transform 400ms, opacity 400ms;
@@ -9,11 +9,11 @@
     padding: 10px 20px;
     text-align: center;
 
-    &.flash-plain {
+    &.nittro-flash-plain {
         white-space: pre-line;
     }
 
-    &.flash-show {
+    &.nittro-flash-show {
         -webkit-transition: none;
         -moz-transition: none;
         -ms-transition: none;
@@ -22,11 +22,11 @@
         opacity: 0;
     }
 
-    &.flash-hide {
+    &.nittro-flash-hide {
         opacity: 0;
     }
 
-    &.flash-info {
+    &.nittro-flash-info {
         background: #ffa;
 
         &:before {
@@ -34,7 +34,7 @@
         }
     }
 
-    &.flash-warning {
+    &.nittro-flash-warning {
         background: #f90;
 
         &:before {
@@ -42,7 +42,7 @@
         }
     }
 
-    &.flash-error {
+    &.nittro-flash-error {
         background: #f50;
 
         &:before {
@@ -50,7 +50,7 @@
         }
     }
 
-    &.flash-above, &.flash-below, &.flash-leftOf, &.flash-rightOf {
+    &.nittro-flash-above, &.nittro-flash-below, &.nittro-flash-leftOf, &.nittro-flash-rightOf {
         &:before {
             position: absolute;
             content: '';
@@ -60,7 +60,7 @@
         }
     }
 
-    &.flash-above {
+    &.nittro-flash-above {
         margin-top: -10px;
 
         &:before {
@@ -72,7 +72,7 @@
             border-right-color: transparent;
         }
 
-        &.flash-show, &.flash-hide {
+        &.nittro-flash-show, &.nittro-flash-hide {
             -webkit-transform: translateY(-10px);
             -moz-transform: translateY(-10px);
             -ms-transform: translateY(-10px);
@@ -81,7 +81,7 @@
         }
     }
 
-    &.flash-below {
+    &.nittro-flash-below {
         margin-top: 10px;
 
         &:before {
@@ -93,7 +93,7 @@
             border-right-color: transparent;
         }
 
-        &.flash-show, &.flash-hide {
+        &.nittro-flash-show, &.nittro-flash-hide {
             -webkit-transform: translateY(10px);
             -moz-transform: translateY(10px);
             -ms-transform: translateY(10px);
@@ -102,7 +102,7 @@
         }
     }
 
-    &.flash-leftOf {
+    &.nittro-flash-leftOf {
         margin-left: -10px;
 
         &:before {
@@ -114,7 +114,7 @@
             border-bottom-color: transparent;
         }
 
-        &.flash-show, &.flash-hide {
+        &.nittro-flash-show, &.nittro-flash-hide {
             -webkit-transform: translateX(-10px);
             -moz-transform: translateX(-10px);
             -ms-transform: translateX(-10px);
@@ -123,7 +123,7 @@
         }
     }
 
-    &.flash-rightOf {
+    &.nittro-flash-rightOf {
         margin-left: 10px;
 
         &:before {
@@ -135,7 +135,7 @@
             border-bottom-color: transparent;
         }
 
-        &.flash-show, &.flash-hide {
+        &.nittro-flash-show, &.nittro-flash-hide {
             -webkit-transform: translateX(10px);
             -moz-transform: translateX(10px);
             -ms-transform: translateX(10px);
@@ -145,7 +145,7 @@
     }
 }
 
-.flash-global-holder {
+.nittro-flash-global-holder {
     position: fixed;
     left: 0;
     top: 0;
@@ -161,7 +161,7 @@
     -webkit-align-items: center;
     align-items: center;
 
-    .flash {
+    .nittro-flash {
         position: relative;
         -webkit-flex: 0 0 auto;
         flex: 0 0 auto;
@@ -169,7 +169,7 @@
         max-width: 80vw;
         padding: 3px 20px;
 
-        &.flash-show {
+        &.nittro-flash-show {
             -webkit-transform: translateX(10px);
             -moz-transform: translateX(10px);
             -ms-transform: translateX(10px);
@@ -177,7 +177,7 @@
             transform: translateX(10px);
         }
 
-        &.flash-hide {
+        &.nittro-flash-hide {
             -webkit-transform: translateX(-10px);
             -moz-transform: translateX(-10px);
             -ms-transform: translateX(-10px);
@@ -185,7 +185,7 @@
             transform: translateX(-10px);
         }
 
-        & + .flash {
+        & + .nittro-flash {
             margin-top: 2px;
         }
     }

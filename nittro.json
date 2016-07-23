@@ -1,0 +1,15 @@
+{
+    "files": {
+        "js": [
+            "src/js/Nittro/Extras/Flashes/Service.js",
+            "src/js/Nittro/Extras/Flashes/Bridges/FlashesDI.js"
+        ],
+        "css": [
+            "src/css/flashes.less"
+        ]
+    },
+    "compat": {
+        "es5": true,
+        "flex": true
+    }
+}

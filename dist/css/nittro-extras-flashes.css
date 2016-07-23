@@ -1,4 +1,4 @@
-.flash {
+.nittro-flash {
   position: absolute;
   -webkit-transition: -webkit-transform 400ms, opacity 400ms;
   -moz-transition: -moz-transform 400ms, opacity 400ms;
@@ -9,10 +9,10 @@
   padding: 10px 20px;
   text-align: center;
 }
-.flash.flash-plain {
+.nittro-flash.nittro-flash-plain {
   white-space: pre-line;
 }
-.flash.flash-show {
+.nittro-flash.nittro-flash-show {
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
@@ -20,41 +20,41 @@
   transition: none;
   opacity: 0;
 }
-.flash.flash-hide {
+.nittro-flash.nittro-flash-hide {
   opacity: 0;
 }
-.flash.flash-info {
+.nittro-flash.nittro-flash-info {
   background: #ffa;
 }
-.flash.flash-info:before {
+.nittro-flash.nittro-flash-info:before {
   border-color: #ffa;
 }
-.flash.flash-warning {
+.nittro-flash.nittro-flash-warning {
   background: #f90;
 }
-.flash.flash-warning:before {
+.nittro-flash.nittro-flash-warning:before {
   border-color: #f90;
 }
-.flash.flash-error {
+.nittro-flash.nittro-flash-error {
   background: #f50;
 }
-.flash.flash-error:before {
+.nittro-flash.nittro-flash-error:before {
   border-color: #f50;
 }
-.flash.flash-above:before,
-.flash.flash-below:before,
-.flash.flash-leftOf:before,
-.flash.flash-rightOf:before {
+.nittro-flash.nittro-flash-above:before,
+.nittro-flash.nittro-flash-below:before,
+.nittro-flash.nittro-flash-leftOf:before,
+.nittro-flash.nittro-flash-rightOf:before {
   position: absolute;
   content: '';
   width: 0;
   height: 0;
   border-style: solid;
 }
-.flash.flash-above {
+.nittro-flash.nittro-flash-above {
   margin-top: -10px;
 }
-.flash.flash-above:before {
+.nittro-flash.nittro-flash-above:before {
   left: 50%;
   top: 100%;
   margin-left: -10px;
@@ -62,18 +62,18 @@
   border-left-color: transparent;
   border-right-color: transparent;
 }
-.flash.flash-above.flash-show,
-.flash.flash-above.flash-hide {
+.nittro-flash.nittro-flash-above.nittro-flash-show,
+.nittro-flash.nittro-flash-above.nittro-flash-hide {
   -webkit-transform: translateY(-10px);
   -moz-transform: translateY(-10px);
   -ms-transform: translateY(-10px);
   -o-transform: translateY(-10px);
   transform: translateY(-10px);
 }
-.flash.flash-below {
+.nittro-flash.nittro-flash-below {
   margin-top: 10px;
 }
-.flash.flash-below:before {
+.nittro-flash.nittro-flash-below:before {
   left: 50%;
   bottom: 100%;
   margin-left: -10px;
@@ -81,18 +81,18 @@
   border-left-color: transparent;
   border-right-color: transparent;
 }
-.flash.flash-below.flash-show,
-.flash.flash-below.flash-hide {
+.nittro-flash.nittro-flash-below.nittro-flash-show,
+.nittro-flash.nittro-flash-below.nittro-flash-hide {
   -webkit-transform: translateY(10px);
   -moz-transform: translateY(10px);
   -ms-transform: translateY(10px);
   -o-transform: translateY(10px);
   transform: translateY(10px);
 }
-.flash.flash-leftOf {
+.nittro-flash.nittro-flash-leftOf {
   margin-left: -10px;
 }
-.flash.flash-leftOf:before {
+.nittro-flash.nittro-flash-leftOf:before {
   left: 100%;
   top: 50%;
   margin-top: -10px;
@@ -100,18 +100,18 @@
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-.flash.flash-leftOf.flash-show,
-.flash.flash-leftOf.flash-hide {
+.nittro-flash.nittro-flash-leftOf.nittro-flash-show,
+.nittro-flash.nittro-flash-leftOf.nittro-flash-hide {
   -webkit-transform: translateX(-10px);
   -moz-transform: translateX(-10px);
   -ms-transform: translateX(-10px);
   -o-transform: translateX(-10px);
   transform: translateX(-10px);
 }
-.flash.flash-rightOf {
+.nittro-flash.nittro-flash-rightOf {
   margin-left: 10px;
 }
-.flash.flash-rightOf:before {
+.nittro-flash.nittro-flash-rightOf:before {
   right: 100%;
   top: 50%;
   margin-top: -10px;
@@ -119,15 +119,15 @@
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-.flash.flash-rightOf.flash-show,
-.flash.flash-rightOf.flash-hide {
+.nittro-flash.nittro-flash-rightOf.nittro-flash-show,
+.nittro-flash.nittro-flash-rightOf.nittro-flash-hide {
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);
   -ms-transform: translateX(10px);
   -o-transform: translateX(10px);
   transform: translateX(10px);
 }
-.flash-global-holder {
+.nittro-flash-global-holder {
   position: fixed;
   left: 0;
   top: 0;
@@ -143,7 +143,7 @@
   -webkit-align-items: center;
   align-items: center;
 }
-.flash-global-holder .flash {
+.nittro-flash-global-holder .nittro-flash {
   position: relative;
   -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -151,20 +151,20 @@
   max-width: 80vw;
   padding: 3px 20px;
 }
-.flash-global-holder .flash.flash-show {
+.nittro-flash-global-holder .nittro-flash.nittro-flash-show {
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);
   -ms-transform: translateX(10px);
   -o-transform: translateX(10px);
   transform: translateX(10px);
 }
-.flash-global-holder .flash.flash-hide {
+.nittro-flash-global-holder .nittro-flash.nittro-flash-hide {
   -webkit-transform: translateX(-10px);
   -moz-transform: translateX(-10px);
   -ms-transform: translateX(-10px);
   -o-transform: translateX(-10px);
   transform: translateX(-10px);
 }
-.flash-global-holder .flash + .flash {
+.nittro-flash-global-holder .nittro-flash + .nittro-flash {
   margin-top: 2px;
 }
