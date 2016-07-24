@@ -8,6 +8,7 @@
             "src/css/flashes.less"
         ]
     },
+    "di": "Nittro.Extras.Flashes.Bridges.FlashesDI()",
     "compat": {
         "es5": true,
         "flex": true
