@@ -6,6 +6,14 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
             globalHolder: DOM.create('div', {'class': 'nittro-flash-global-holder'})
         };
 
+        if (typeof this._.options.layer === 'string') {
+            this._.options.layer = DOM.getById(this._.options.layer);
+
+        } else if (!this._.options.layer) {
+            this._.options.layer = document.body;
+
+        }
+
         this._.options.layer.appendChild(this._.globalHolder);
 
         if (!this._.options.positioning) {
@@ -213,31 +221,4 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
 }, {
     DOM: 'Utils.DOM',
     Arrays: 'Utils.Arrays'
-});
-;
-_context.invoke('Nittro.Extras.Flashes.Bridges', function(Nittro) {
-
-    if (!Nittro.DI) {
-        return;
-    }
-
-    var FlashesDI = _context.extend('Nittro.DI.BuilderExtension', function(containerBuilder, config) {
-        FlashesDI.Super.call(this, containerBuilder, config);
-
-    }, {
-        load: function() {
-            var builder = this._getContainerBuilder(),
-                config = this._getConfig();
-
-            builder.addServiceDefinition('flashes', {
-                factory: 'Nittro.Extras.Flashes.Service()',
-                args: {
-                    options: config
-                }
-            });
-        }
-    });
-
-    _context.register(FlashesDI, 'FlashesDI');
-
 });

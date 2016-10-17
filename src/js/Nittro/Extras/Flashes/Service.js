@@ -6,6 +6,14 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
             globalHolder: DOM.create('div', {'class': 'nittro-flash-global-holder'})
         };
 
+        if (typeof this._.options.layer === 'string') {
+            this._.options.layer = DOM.getById(this._.options.layer);
+
+        } else if (!this._.options.layer) {
+            this._.options.layer = document.body;
+
+        }
+
         this._.options.layer.appendChild(this._.globalHolder);
 
         if (!this._.options.positioning) {
