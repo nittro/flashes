@@ -1,11 +1,7 @@
-_context.invoke('Nittro.Extras.Flashes.Bridges', function(Nittro) {
+_context.invoke('Nittro.Extras.Flashes.Bridges.FlashesDI', function() {
 
-    if (!Nittro.DI) {
-        return;
-    }
-
-    var FlashesDI = _context.extend('Nittro.DI.BuilderExtension', function(containerBuilder, config) {
-        FlashesDI.Super.call(this, containerBuilder, config);
+    var FlashesExtension = _context.extend('Nittro.DI.BuilderExtension', function(containerBuilder, config) {
+        FlashesExtension.Super.call(this, containerBuilder, config);
 
     }, {
         load: function() {
@@ -21,6 +17,6 @@ _context.invoke('Nittro.Extras.Flashes.Bridges', function(Nittro) {
         }
     });
 
-    _context.register(FlashesDI, 'FlashesDI');
+    _context.register(FlashesExtension, 'FlashesExtension');
 
 });

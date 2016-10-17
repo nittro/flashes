@@ -1,14 +1,22 @@
 {
     "files": {
         "js": [
-            "src/js/Nittro/Extras/Flashes/Service.js",
-            "src/js/Nittro/Extras/Flashes/Bridges/FlashesDI.js"
+            "src/js/Nittro/Extras/Flashes/Service.js"
         ],
         "css": [
             "src/css/flashes.less"
         ]
     },
-    "di": "Nittro.Extras.Flashes.Bridges.FlashesDI()",
+    "bridges": {
+        "nittro-di": {
+            "files": [
+                "src/js/Nittro/Extras/Flashes/Bridges/FlashesDI/FlashesExtension.js"
+            ],
+            "extensions": {
+                "flashes": "Nittro.Extras.Flashes.Bridges.FlashesDI.FlashesExtension()"
+            }
+        }
+    },
     "compat": {
         "es5": true,
         "flex": true
