@@ -21,12 +21,17 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
 
         }
 
+        if (!this._.options.classes) {
+            this._.options.classes = DOM.getData(this._.options.layer, 'flash-classes');
+
+        }
     }, {
         STATIC: {
             defaults: {
                 layer: null,
                 minMargin: 20,
-                positioning: null
+                positioning: null,
+                classes: null
             },
             basicPositioning: [
                 function(target, elem, minMargin) {
@@ -80,8 +85,10 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
             ]
         },
         add: function (target, type, content, rich) {
+            type || (type = 'info');
+
             var elem = DOM.create('div', {
-                'class': 'nittro-flash nittro-flash-' + (type || 'info')
+                'class': 'nittro-flash nittro-flash-' + type
             });
 
             if (target && typeof target === 'string') {
@@ -89,10 +96,10 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays) {
 
             }
 
-            var targetClass = target ? DOM.getData(target, 'flash-class') : null;
+            var classes = target ? DOM.getData(target, 'flash-classes') : this._.options.classes;
 
-            if (targetClass) {
-                DOM.addClass(elem, targetClass);
+            if (classes) {
+                DOM.addClass(elem, classes.replace(/%type%/g, type));
 
             }
 
