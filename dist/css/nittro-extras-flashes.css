@@ -62,6 +62,7 @@
 }
 .nittro-flash.nittro-flash-above {
   margin-top: -10px;
+  text-align: center;
 }
 .nittro-flash.nittro-flash-above:before {
   left: 50%;
@@ -77,6 +78,7 @@
 }
 .nittro-flash.nittro-flash-below {
   margin-top: 10px;
+  text-align: center;
 }
 .nittro-flash.nittro-flash-below:before {
   left: 50%;
@@ -92,6 +94,7 @@
 }
 .nittro-flash.nittro-flash-leftOf {
   margin-left: -10px;
+  text-align: right;
 }
 .nittro-flash.nittro-flash-leftOf:before {
   left: 100%;
@@ -137,6 +140,7 @@
   min-width: 30vw;
   max-width: 90vw;
   padding: 3px 2vw;
+  text-align: center;
 }
 .nittro-flash-global-holder .nittro-flash.nittro-flash-show {
   transform: translateX(10px);

@@ -191,7 +191,15 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
         },
 
         _bindHide: function (elem, timeout) {
+            var hidden = false;
+
             var hide = function () {
+                if (hidden) {
+                    return;
+                }
+
+                hidden = true;
+
                 DOM.removeListener(document, 'mousemove', hide);
                 DOM.removeListener(document, 'mousedown', hide);
                 DOM.removeListener(document, 'keydown', hide);
