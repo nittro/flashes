@@ -1,9 +1,5 @@
 .nittro-flash {
-  position: absolute;
   transition: transform 400ms, opacity 400ms;
-  max-width: 200px;
-  padding: 10px 20px;
-  text-align: center;
 }
 .nittro-flash.nittro-flash-plain {
   white-space: pre-line;
@@ -33,6 +29,9 @@
 .nittro-flash.nittro-flash-error:before {
   border-color: #f50;
 }
+.nittro-flash.nittro-flash-inline {
+  padding: 10px 20px;
+}
 .nittro-flash.nittro-flash-inline.nittro-flash-show {
   transform: translateX(10px);
 }
@@ -41,6 +40,15 @@
 }
 .nittro-flash.nittro-flash-inline + .nittro-flash-inline {
   margin-top: 5px;
+}
+.nittro-flash.nittro-flash-above,
+.nittro-flash.nittro-flash-below,
+.nittro-flash.nittro-flash-leftOf,
+.nittro-flash.nittro-flash-rightOf {
+  position: absolute;
+  max-width: 200px;
+  padding: 10px 20px;
+  text-align: center;
 }
 .nittro-flash.nittro-flash-above:before,
 .nittro-flash.nittro-flash-below:before,
@@ -125,11 +133,10 @@
   align-items: center;
 }
 .nittro-flash-global-holder .nittro-flash {
-  position: relative;
   flex: 0 0 auto;
   min-width: 30vw;
-  max-width: 80vw;
-  padding: 3px 20px;
+  max-width: 90vw;
+  padding: 3px 2vw;
 }
 .nittro-flash-global-holder .nittro-flash.nittro-flash-show {
   transform: translateX(10px);
