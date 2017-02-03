@@ -119,6 +119,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             if (inline) {
                 target.appendChild(elem);
                 this._show(elem, 'inline', timeout);
+                return;
             }
 
             if (target) {
@@ -191,15 +192,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
         },
 
         _bindHide: function (elem, timeout) {
-            var hidden = false;
-
             var hide = function () {
-                if (hidden) {
-                    return;
-                }
-
-                hidden = true;
-
                 DOM.removeListener(document, 'mousemove', hide);
                 DOM.removeListener(document, 'mousedown', hide);
                 DOM.removeListener(document, 'keydown', hide);
