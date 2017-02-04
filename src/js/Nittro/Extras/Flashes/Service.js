@@ -125,7 +125,11 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             }
 
             if (target) {
-                DOM.setStyle(elem, 'opacity', 0);
+                DOM.setStyle(elem, {
+                    position: 'absolute',
+                    opacity: 0
+                });
+
                 this._.options.layer.appendChild(elem);
 
                 var fixed = this._hasFixedParent(target),
@@ -208,7 +212,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                 DOM.removeListener(document, 'keydown', hide);
                 DOM.removeListener(document, 'touchstart', hide);
 
-                var timeout = Math.max(2000, Math.round(elem.textContent.split(/\s+/).length / 0.003));
+                var timeout = Math.max(5000, Math.round(elem.textContent.split(/\s+/).length / 0.003));
 
                 window.setTimeout(function () {
                     DOM.addClass(elem, 'nittro-flash-hide');

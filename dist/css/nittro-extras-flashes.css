@@ -45,7 +45,6 @@
 .nittro-flash.nittro-flash-below,
 .nittro-flash.nittro-flash-leftOf,
 .nittro-flash.nittro-flash-rightOf {
-  position: absolute;
   max-width: 200px;
   padding: 10px 20px;
   text-align: center;
