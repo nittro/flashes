@@ -29,6 +29,8 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             this._.options.classes = DOM.getData(this._.options.layer, 'flash-classes');
 
         }
+
+        this._removeStatic();
     }, {
         STATIC: {
             defaults: {
@@ -92,6 +94,8 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                 'class': 'nittro-flash nittro-flash-' + type
             });
 
+            DOM.setData(elem, 'flash-dynamic', true);
+
             if (target && typeof target === 'string') {
                 target = DOM.getById(target);
 
@@ -114,11 +118,9 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
 
             }
 
-            var timeout = Math.max(2000, Math.round(elem.textContent.split(/\s+/).length / 0.003));
-
             if (inline) {
                 target.appendChild(elem);
-                this._show(elem, 'inline', timeout);
+                this._show(elem, 'inline');
                 return;
             }
 
@@ -130,7 +132,9 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                     elemRect = this._getRect(elem),
                     targetRect = this._getRect(target),
                     style = {},
-                    positionName = DOM.getData(target, 'flash-position'),
+                    order = this._.options.positioningOrder,
+                    force = false,
+                    positionName = DOM.getData(target, 'flash-placement'),
                     position;
 
                 if (fixed) {
@@ -139,16 +143,22 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                 }
 
                 if (positionName) {
-                    position = this._.options.positioning[positionName].call(null, targetRect, elemRect, this._.options.minMargin, true);
+                    var m = positionName.match(/^(.+?)(!)?(!)?$/);
+                    force = !!m[3];
 
-                } else {
-                    for (var i = 0; i < this._.options.positioningOrder.length; i++) {
-                        positionName = this._.options.positioningOrder[i];
+                    if (m[2]) {
+                        order = [m[1]];
+                    } else {
+                        order.unshift(m[1]);
+                    }
+                }
 
-                        if (position = this._.options.positioning[positionName].call(null, targetRect, elemRect, this._.options.minMargin)) {
-                            break;
+                for (var i = 0; i < order.length; i++) {
+                    positionName = order[i];
 
-                        }
+                    if (position = this._.options.positioning[positionName].call(null, targetRect, elemRect, this._.options.minMargin, force)) {
+                        break;
+
                     }
                 }
 
@@ -167,7 +177,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                     style.opacity = '';
 
                     DOM.setStyle(elem, style);
-                    this._show(elem, positionName, timeout);
+                    this._show(elem, positionName);
                     return;
 
                 } else {
@@ -176,27 +186,29 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             }
 
             this._.globalHolder.appendChild(elem);
-            this._show(elem, 'global', timeout);
+            this._show(elem, 'global');
 
         },
 
-        _show: function (elem, position, timeout) {
+        _show: function (elem, position) {
             DOM.addClass(elem, 'nittro-flash-show nittro-flash-' + position);
 
             window.setTimeout(function () {
                 var foo = window.pageYOffset; // need to force css recalculation
                 DOM.removeClass(elem, 'nittro-flash-show');
-                this._bindHide(elem, timeout);
+                this._bindHide(elem);
 
             }.bind(this), 1);
         },
 
-        _bindHide: function (elem, timeout) {
+        _bindHide: function (elem) {
             var hide = function () {
                 DOM.removeListener(document, 'mousemove', hide);
                 DOM.removeListener(document, 'mousedown', hide);
                 DOM.removeListener(document, 'keydown', hide);
                 DOM.removeListener(document, 'touchstart', hide);
+
+                var timeout = Math.max(2000, Math.round(elem.textContent.split(/\s+/).length / 0.003));
 
                 window.setTimeout(function () {
                     DOM.addClass(elem, 'nittro-flash-hide');
@@ -212,6 +224,15 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             DOM.addListener(document, 'keydown', hide);
             DOM.addListener(document, 'touchstart', hide);
 
+        },
+
+        _removeStatic: function () {
+            DOM.getByClassName('nittro-flash')
+                .forEach(function (elem) {
+                    if (!DOM.getData(elem, 'flash-dynamic')) {
+                        this._bindHide(elem);
+                    }
+                }.bind(this));
         },
 
         _hasFixedParent: function (elem) {

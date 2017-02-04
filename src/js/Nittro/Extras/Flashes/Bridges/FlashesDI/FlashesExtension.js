@@ -12,7 +12,8 @@ _context.invoke('Nittro.Extras.Flashes.Bridges.FlashesDI', function() {
                 factory: 'Nittro.Extras.Flashes.Service()',
                 args: {
                     options: config
-                }
+                },
+                run: true
             });
         }
     });
