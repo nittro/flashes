@@ -187,7 +187,11 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                     return;
 
                 } else {
-                    DOM.setStyle(elem, 'opacity', '');
+                    DOM.removeClass(elem, 'nittro-flash-floating');
+                    DOM.setStyle(elem, {
+                        position: '',
+                        opacity: ''
+                    });
                 }
             }
 
