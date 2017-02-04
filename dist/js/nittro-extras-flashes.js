@@ -47,7 +47,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                         top: target.top - elem.height
                     };
 
-                    if (force || target.top > elem.height + minMargin && res.left > 0 && res.left + elem.width < window.innerWidth) {
+                    if (force || res.left > minMargin && res.left + elem.width < window.innerWidth - minMargin && res.top > minMargin && res.top + elem.height < window.innerHeight - minMargin) {
                         return res;
 
                     }
@@ -58,7 +58,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                         top: target.bottom
                     };
 
-                    if (force || target.bottom + elem.height + minMargin < window.innerHeight && res.left > 0 && res.left + elem.width < window.innerWidth) {
+                    if (force || res.left > minMargin && res.left + elem.width < window.innerWidth - minMargin && res.top + elem.height < window.innerHeight - minMargin && res.top > minMargin) {
                         return res;
 
                     }
@@ -69,7 +69,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                         top: target.top + (target.height - elem.height) / 2
                     };
 
-                    if (force || target.left > elem.width + minMargin && res.top > 0 && res.top + elem.height < window.innerHeight) {
+                    if (force || res.top > minMargin && res.top + elem.height < window.innerHeight - minMargin && res.left > minMargin && res.left + elem.width < window.innerWidth - minMargin) {
                         return res;
 
                     }
@@ -80,7 +80,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
                         top: target.top + (target.height - elem.height) / 2
                     };
 
-                    if (force || target.right + elem.width + minMargin < window.innerWidth && res.top > 0 && res.top + elem.height < window.innerHeight) {
+                    if (force || res.top > minMargin && res.top + elem.height < window.innerHeight - minMargin && res.left + elem.width < window.innerWidth - minMargin && res.left > minMargin) {
                         return res;
 
                     }
