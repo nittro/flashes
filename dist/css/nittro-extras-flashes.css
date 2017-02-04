@@ -51,66 +51,58 @@
   content: '';
   width: 0;
   height: 0;
+  border-width: 5px;
   border-style: solid;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform-origin: center center;
 }
 .nittro-flash.nittro-flash-above {
-  margin-top: -10px;
+  margin-top: -7px;
   text-align: center;
 }
 .nittro-flash.nittro-flash-above:before {
   left: 50%;
   top: 100%;
-  margin-left: -10px;
-  border-width: 10px 10px 0 10px;
-  border-left-color: transparent;
-  border-right-color: transparent;
+  transform: translate(-5px, -5px) rotate(135deg);
 }
 .nittro-flash.nittro-flash-above.nittro-flash-show,
 .nittro-flash.nittro-flash-above.nittro-flash-hide {
   transform: translateY(-10px);
 }
 .nittro-flash.nittro-flash-below {
-  margin-top: 10px;
+  margin-top: 7px;
   text-align: center;
 }
 .nittro-flash.nittro-flash-below:before {
   left: 50%;
   bottom: 100%;
-  margin-left: -10px;
-  border-width: 0 10px 10px 10px;
-  border-left-color: transparent;
-  border-right-color: transparent;
+  transform: translate(-5px, 5px) rotate(-45deg);
 }
 .nittro-flash.nittro-flash-below.nittro-flash-show,
 .nittro-flash.nittro-flash-below.nittro-flash-hide {
   transform: translateY(10px);
 }
 .nittro-flash.nittro-flash-leftOf {
-  margin-left: -10px;
+  margin-left: -7px;
   text-align: right;
 }
 .nittro-flash.nittro-flash-leftOf:before {
   left: 100%;
   top: 50%;
-  margin-top: -10px;
-  border-width: 10px 0 10px 10px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  transform: translate(-5px, -5px) rotate(45deg);
 }
 .nittro-flash.nittro-flash-leftOf.nittro-flash-show,
 .nittro-flash.nittro-flash-leftOf.nittro-flash-hide {
   transform: translateX(-10px);
 }
 .nittro-flash.nittro-flash-rightOf {
-  margin-left: 10px;
+  margin-left: 7px;
 }
 .nittro-flash.nittro-flash-rightOf:before {
   right: 100%;
   top: 50%;
-  margin-top: -10px;
-  border-width: 10px 10px 10px 0;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  transform: translate(5px, -5px) rotate(-135deg);
 }
 .nittro-flash.nittro-flash-rightOf.nittro-flash-show,
 .nittro-flash.nittro-flash-rightOf.nittro-flash-hide {
