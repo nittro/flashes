@@ -41,18 +41,12 @@
 .nittro-flash.nittro-flash-inline + .nittro-flash-inline {
   margin-top: 5px;
 }
-.nittro-flash.nittro-flash-above,
-.nittro-flash.nittro-flash-below,
-.nittro-flash.nittro-flash-leftOf,
-.nittro-flash.nittro-flash-rightOf {
+.nittro-flash.nittro-flash-floating {
   max-width: 200px;
   padding: 10px 20px;
   text-align: center;
 }
-.nittro-flash.nittro-flash-above:before,
-.nittro-flash.nittro-flash-below:before,
-.nittro-flash.nittro-flash-leftOf:before,
-.nittro-flash.nittro-flash-rightOf:before {
+.nittro-flash.nittro-flash-floating:before {
   position: absolute;
   content: '';
   width: 0;

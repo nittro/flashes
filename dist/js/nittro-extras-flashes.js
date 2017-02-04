@@ -90,19 +90,20 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
         add: function (content, type, target, rich) {
             type || (type = 'info');
 
-            var elem = DOM.create('div', {
-                'class': 'nittro-flash nittro-flash-' + type
-            });
-
-            DOM.setData(elem, 'flash-dynamic', true);
-
             if (target && typeof target === 'string') {
                 target = DOM.getById(target);
 
             }
 
             var classes = target ? DOM.getData(target, 'flash-classes') : this._.options.classes,
-                inline = target ? DOM.getData(target, 'flash-inline') : false;
+                inline = target ? DOM.getData(target, 'flash-inline') : false,
+                tag = inline ? (target.tagName.match(/^(?:ul|ol)$/i) ? 'li' : 'p') : 'div';
+
+            var elem = DOM.create(tag, {
+                'class': 'nittro-flash nittro-flash-' + type
+            });
+
+            DOM.setData(elem, 'flash-dynamic', true);
 
             if (classes) {
                 DOM.addClass(elem, classes.replace(/%type%/g, type));
@@ -125,6 +126,7 @@ _context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) 
             }
 
             if (target) {
+                DOM.addClass(elem, 'nittro-flash-floating');
                 DOM.setStyle(elem, {
                     position: 'absolute',
                     opacity: 0
