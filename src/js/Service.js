@@ -1,4 +1,4 @@
-_context.invoke('Nittro.Extras.Flashes', function (DOM, Arrays, CSSTransitions) {
+_context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions) {
 
     var Service = _context.extend(function (options) {
         this._ = {

@@ -1,7 +1,7 @@
 {
     "files": {
         "js": [
-            "src/js/Nittro/Extras/Flashes/Service.js"
+            "src/js/Service.js"
         ],
         "css": [
             "src/css/flashes.less"
@@ -10,10 +10,10 @@
     "bridges": {
         "nittro-di": {
             "files": [
-                "src/js/Nittro/Extras/Flashes/Bridges/FlashesDI/FlashesExtension.js"
+                "src/js/Bridges/FlashesDI/FlashesExtension.js"
             ],
             "extensions": {
-                "flashes": "Nittro.Extras.Flashes.Bridges.FlashesDI.FlashesExtension()"
+                "flashes": "Nittro.Flashes.Bridges.FlashesDI.FlashesExtension()"
             }
         }
     },
