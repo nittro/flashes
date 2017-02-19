@@ -1,6 +1,9 @@
 {
     "files": {
         "js": [
+            "src/js/Helpers.js",
+            "src/js/Message.js",
+            "src/js/DefaultPositioner.js",
             "src/js/Service.js"
         ],
         "css": [
