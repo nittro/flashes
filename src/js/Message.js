@@ -11,6 +11,8 @@ _context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions, Helpers
 
         if (this._.service === null) {
             this._.elem = content;
+            this._.visible = true;
+            this._normalizeDismissTime();
             this._scheduleDismiss();
             return;
         }
@@ -45,11 +47,7 @@ _context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions, Helpers
             this._.elem.textContent = content;
         }
 
-        if (this._.options.dismiss !== false) {
-            if (typeof this._.options.dismiss !== 'number') {
-                this._.options.dismiss = Math.max(5000, Math.round(this._.elem.textContent.split(/\s+/).length / 0.003));
-            }
-        }
+        this._normalizeDismissTime();
     }, {
         STATIC: {
             wrap: function (elem) {
@@ -135,6 +133,14 @@ _context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions, Helpers
                 this._scheduleDismiss();
                 return this;
             }.bind(this));
+        },
+
+        _normalizeDismissTime: function () {
+            if (this._.options.dismiss !== false) {
+                if (typeof this._.options.dismiss !== 'number') {
+                    this._.options.dismiss = Math.max(5000, Math.round(this._.elem.textContent.split(/\s+/).length / 0.003));
+                }
+            }
         },
 
         _scheduleDismiss: function () {
