@@ -23,6 +23,7 @@ _context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions, Helpers
         if (target) {
             this._.options.classes === null && (this._.options.classes = DOM.getData(target, 'flash-classes'));
             this._.options.inline === null && (this._.options.inline = DOM.getData(target, 'flash-inline'));
+            this._.options.rich === null && (this._.options.rich = DOM.getData(target, 'flash-rich'));
 
             if (this._.options.inline) {
                 tag = target.tagName.match(/^(?:ul|ol)$/i) ? 'li' : 'p';
@@ -59,7 +60,7 @@ _context.invoke('Nittro.Flashes', function (DOM, Arrays, CSSTransitions, Helpers
                 classes: null,
                 inline: null,
                 placement: null,
-                rich: false,
+                rich: null,
                 dismiss: null
             }
         },
